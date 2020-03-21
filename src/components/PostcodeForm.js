@@ -11,6 +11,20 @@ export default class PostcodeForm extends React.Component {
     });
   };
 
+  handleOnSubmit = e => {
+    e.preventDefault 
+
+    let formData = {
+      postcode: this.state.postcode
+    }
+
+    this.props.dispatch(findLocalAuthority(formData))
+
+    this.setState({
+      postcode: ""
+    })
+  }
+
   render() {
     return (
       <form onSubmit={this.handleOnSubmit}>
