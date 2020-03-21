@@ -5,6 +5,10 @@ export default class PostcodeForm extends React.Component {
     postcode: ""
   };
 
+
+
+
+
   render() {
     return (
       <form onSubmit={this.handleOnSubmit}>
