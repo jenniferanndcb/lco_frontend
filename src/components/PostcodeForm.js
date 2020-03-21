@@ -1,6 +1,8 @@
 import React from "react";
+import { connect } from "react-redux";
+import { findLocalAuthority } from "../actions/postcodes";
 
-export default class PostcodeForm extends React.Component {
+class PostcodeForm extends React.Component {
   state = {
     postcode: ""
   };
@@ -12,18 +14,18 @@ export default class PostcodeForm extends React.Component {
   };
 
   handleOnSubmit = e => {
-    e.preventDefault 
+    e.preventDefault;
 
     let formData = {
       postcode: this.state.postcode
-    }
+    };
 
-    this.props.dispatch(findLocalAuthority(formData))
+    this.props.dispatch(findLocalAuthority(formData));
 
     this.setState({
       postcode: ""
-    })
-  }
+    });
+  };
 
   render() {
     return (
@@ -38,3 +40,5 @@ export default class PostcodeForm extends React.Component {
     );
   }
 }
+
+export default connect()(PostcodeForm);
