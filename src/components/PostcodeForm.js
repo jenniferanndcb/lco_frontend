@@ -14,13 +14,13 @@ class PostcodeForm extends React.Component {
   };
 
   handleOnSubmit = e => {
-    e.preventDefault;
+    e.preventDefault();
 
     let formData = {
       postcode: this.state.postcode
     };
 
-    this.props.dispatch(findLocalAuthority(formData));
+    this.props.findLocalAuthority(formData);
 
     this.setState({
       postcode: ""
@@ -41,4 +41,4 @@ class PostcodeForm extends React.Component {
   }
 }
 
-export default connect()(PostcodeForm);
+export default connect(null, { findLocalAuthority })(PostcodeForm);
