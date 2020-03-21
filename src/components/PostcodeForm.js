@@ -5,9 +5,11 @@ export default class PostcodeForm extends React.Component {
     postcode: ""
   };
 
-
-
-
+  handleOnChange = e => {
+    this.setState({
+      postcode: e.target.value
+    });
+  };
 
   render() {
     return (
