@@ -33,7 +33,7 @@ class PostcodeForm extends React.Component {
         <label>Enter Postcode:</label>
         <input
           type="text"
-          value={this.state.value}
+          value={this.state.postcode}
           onChange={this.handleOnChange}
         />
       </form>
