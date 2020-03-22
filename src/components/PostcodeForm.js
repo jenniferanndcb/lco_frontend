@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { findLocalAuthority } from "../actions/postcodes";
+import { fetchLocalAuthority } from "../actions/postcodes";
 
 class PostcodeForm extends React.Component {
   state = {
@@ -20,7 +20,7 @@ class PostcodeForm extends React.Component {
       postcode: this.state.postcode
     };
 
-    this.props.findLocalAuthority(formData);
+    this.props.fetchLocalAuthority(formData);
 
     this.setState({
       postcode: ""
@@ -41,4 +41,4 @@ class PostcodeForm extends React.Component {
   }
 }
 
-export default connect(null, { findLocalAuthority })(PostcodeForm);
+export default connect(null, { fetchLocalAuthority })(PostcodeForm);

@@ -1,11 +1,12 @@
-import React from 'react';
-import PostcodeForm from './components/PostcodeForm';
-
+import React from "react";
+import PostcodeForm from "./components/PostcodeForm";
+import Title from "./components/Title";
 
 function App() {
   return (
     <div className="App">
-      <PostcodeForm/>
+      <Title />
+      <PostcodeForm />
     </div>
   );
 }

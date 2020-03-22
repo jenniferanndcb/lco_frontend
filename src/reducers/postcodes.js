@@ -1,18 +1,18 @@
 //FIND_LOCAL_AUTHORITY: request postcode info and return local authority name
 
-export default (state = "", action) => {
+export default (state = { localAuthority: "", requesting: false }, action) => {
   switch (action.type) {
     case "START_FETCHING_LA'":
       return {
         state,
-        postcode: "",
+        localAuthority: "",
         requesting: true
       };
 
     case "FIND_LOCAL_AUTHORITY":
       return {
         state,
-        postcode: action.data,
+        localAuthority: action.payload,
         requesting: false
       };
 
