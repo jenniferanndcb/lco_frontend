@@ -7,7 +7,7 @@ class Title extends React.Component {
     return (
       <div>
         <h1>Prevalance of Childhood Obesity in London 2018/19</h1>
-        <h2>{this.props.localAuthority}</h2>
+        <h2>London Borough of {this.props.localAuthority}</h2>
       </div>
     );
   }
