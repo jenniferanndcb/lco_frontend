@@ -24,11 +24,15 @@ class Charts extends React.Component {
         labels: ["4-5 year olds", "10-11 year olds"],
         datasets: [
           {
-            label: this.props.londonData
+            label: this.props.londonData.map(this.renderPlace)
           }
         ]
       }
     });
+  }
+
+  renderPlace(data) {
+    return <span>{data.region_name}</span>;
   }
 
   render() {
