@@ -24,7 +24,7 @@ class Charts extends React.Component {
         labels: ["4-5 year olds", "10-11 year olds"],
         datasets: [
           {
-            label: this.props.londonData.map(this.renderPlace)
+            label: this.props.londonData
           }
         ]
       }
@@ -45,6 +45,7 @@ class Charts extends React.Component {
 }
 
 const mapStateToProps = state => {
+  console.log(state);
   return {
     londonData: state.londonData.londonData
   };

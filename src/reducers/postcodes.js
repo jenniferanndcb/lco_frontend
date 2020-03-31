@@ -4,14 +4,14 @@ export default (state = { localAuthority: "", requesting: false }, action) => {
   switch (action.type) {
     case "START_FETCHING_LA'":
       return {
-        state,
+        ...state,
         localAuthority: "",
         requesting: true
       };
 
     case "FIND_LOCAL_AUTHORITY":
       return {
-        state,
+        ...state,
         localAuthority: action.payload,
         requesting: false
       };
