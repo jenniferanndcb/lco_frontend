@@ -19,33 +19,40 @@ class Charts extends React.Component {
 
   componentDidMount() {
     this.props.fetchLondonData();
-    this.setState({
-      data: {
-        labels: ["4-5 year olds", "10-11 year olds"],
-        datasets: [
-          {
-            label: this.props.londonData
-          }
-        ]
-      }
-    });
   }
 
-  renderPlace(data) {
-    return <span>{data.region_name}</span>;
+  formatLondonData = data => {
+    data = {
+      labels: ["4-5 year olds", "10-11 year olds"],
+      datasets: [
+        {
+          label: this.props.londonData.map(this.renderPlace)
+        }
+      ]
+    };
+  };
+
+  renderPlace(arr) {
+    return <span>{arr.region_name}</span>
   }
 
   render() {
     return (
-      <div style={{ position: "relative", width: 1000, height: 550 }}>
-        <Bar data={this.state.data} options={{ maintainAspectRatio: true }} />
+      <div>
+        <div style={{ position: "relative", width: 1000, height: 550 }}>
+          {this.props.londonData.length > 0 && (
+            <Bar
+              data={this.formatLondonData(this.props.londonData)}
+              options={{ maintainAspectRatio: true }}
+            />
+          )}
+        </div>
       </div>
     );
   }
 }
 
 const mapStateToProps = state => {
-  console.log(state);
   return {
     londonData: state.londonData.londonData
   };
