@@ -49,7 +49,18 @@ class Charts extends React.Component {
           {finishedFetching && (
             <Bar
               data={this.formatLondonData(this.props.londonData)}
-              options={{ maintainAspectRatio: true }}
+              options={{
+                scales: {
+                  yAxes: [
+                    {
+                      ticks: {
+                        beginAtZero: true
+                      }
+                    }
+                  ]
+                },
+                maintainAspectRatio: false
+              }}
             />
           )}
         </div>
