@@ -4,18 +4,6 @@ import { fetchLondonData } from "../actions/londondata";
 import { connect } from "react-redux";
 
 class Charts extends React.Component {
-  state = {
-    data: {
-      labels: "",
-      datasets: [
-        {
-          label: "",
-          backgroundColor: "rgba(255, 0, 255, 0.75)",
-          data: ""
-        }
-      ]
-    }
-  };
 
   componentDidMount() {
     this.props.fetchLondonData();
@@ -29,7 +17,7 @@ class Charts extends React.Component {
           label: "London",
           backgroundColor: "rgba(255, 0, 255, 0.75)",
           barPercentage: 0.5,
-          maxBarThickness: 80,
+          maxBarThickness: 150,
           minBarLength: 2,
           data: this.props.londonData.map(arr => arr.value)
         }
