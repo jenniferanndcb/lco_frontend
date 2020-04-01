@@ -1,12 +1,13 @@
 import React from "react";
 import { Bar } from "react-chartjs-2";
 import { fetchLondonData } from "../actions/londondata";
+import { fetchLocalAuthData } from "../actions/localauthdata";
 import { connect } from "react-redux";
 
 class Charts extends React.Component {
-
   componentDidMount() {
     this.props.fetchLondonData();
+    this.props.fetchLocalAuthData();
   }
 
   formatLondonData = londonData => {
@@ -63,4 +64,11 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { fetchLondonData })(Charts);
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchLondonData: () => dispatch(fetchLondonData()),
+    fetchLocalAuthData: () => dispatch(fetchLocalAuthData())
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Charts);
