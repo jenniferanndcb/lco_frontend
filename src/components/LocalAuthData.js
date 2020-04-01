@@ -16,13 +16,15 @@ class LocalAuthData extends React.Component {
       ]
     }
   };
-  
+
+  //if this.props.localAuthority && render this.props.lond
   
 }
 
 const mapStateToProps = state => {
   return {
-    londonData: state.londonData.londonData
+    localAuthData: state.localAuthData.londonData, 
+    localAuthority: state.postcodes.localAuthority
   };
 };
 
