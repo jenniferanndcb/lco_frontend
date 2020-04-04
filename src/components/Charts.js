@@ -26,10 +26,6 @@ class Charts extends React.Component {
     });
   };
 
-  renderPlace(arr) {
-    return <span>{arr.region_name}</span>;
-  }
-
   render() {
     const finishedFetching = this.props.londonData.length > 0;
     return (
