@@ -16,7 +16,7 @@ class Charts extends React.Component {
       datasets: [
         {
           label: "London",
-          backgroundColor: "rgba(255, 0, 255, 0.75)",
+          backgroundColor: "rgba(100, 0, 250, 0.75)",
           barPercentage: 0.5,
           maxBarThickness: 150,
           minBarLength: 2,
