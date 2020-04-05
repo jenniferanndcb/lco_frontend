@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-// import { fetchLocalAuthority } from "../actions/postcodes";
 import { fetchLocalAuthData } from "../actions/localauthdata";
 import Charts from "./Charts"
 
@@ -23,14 +22,7 @@ class PostcodeForm extends React.Component {
     this.renderAreaName(this.state.localAuth);
     e.preventDefault();
 
-    // let formData = {
-    //   postcode: this.state.postcode,
-    // };
-
-    // this.props.fetchLocalAuthority(formData);
-
     this.setState({
-      // postcode: "",
       localAuth: "",
     });
   };
