@@ -6,5 +6,5 @@ import londonData from "./londonData";
 export default combineReducers({
   // postcodes,
   localAuthData,
-  londonData,
+  
 });

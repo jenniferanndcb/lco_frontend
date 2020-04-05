@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { fetchLocalAuthData } from "../actions/localauthdata";
 import Charts from "./Charts"
 
-class PostcodeForm extends React.Component {
+class AreaDropdown extends React.Component {
   state = {
     localAuth: "",
   };
@@ -69,4 +69,4 @@ const mapStatetoProps = (state) => {
   };
 };
 
-export default connect(mapStatetoProps, { fetchLocalAuthData })(PostcodeForm);
+export default connect(mapStatetoProps, { fetchLocalAuthData })(AreaDropdown);

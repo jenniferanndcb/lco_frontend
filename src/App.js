@@ -1,5 +1,5 @@
 import React from "react";
-import PostcodeForm from "./components/PostcodeForm";
+import PostcodeForm from "./components/AreaDropdown";
 import Title from "./components/Title";
 import Charts from "./components/Charts";
 
