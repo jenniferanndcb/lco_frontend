@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 // import { fetchLocalAuthority } from "../actions/postcodes";
 import { fetchLocalAuthData } from "../actions/localauthdata";
+import Charts from "./Charts"
 
 class PostcodeForm extends React.Component {
   state = {
@@ -49,25 +50,26 @@ class PostcodeForm extends React.Component {
 
   render() {
     return (
-      <div className="form">
+      <div className="container">
+        <div className="form">
         {this.props.localAuth.length > 0 && (
           <form onSubmit={this.handleOnSubmit}>
             <label>Select Local Authority</label>
-            {/* <input
-            type="text"
-            value={this.state.postcode}
-            onChange={this.handleOnChange}
-          /> */}
             <select value={this.state.value} onChange={this.handleOnChange}>
               {this.handleSelect(this.props.localAuth)}
             </select>
           </form>
         )}
-        {this.state.localAuth && this.renderAreaName(this.state.localAuth)}
+        </div>
+        <div className="selectedOption">{this.state.localAuth && this.renderAreaName(this.state.localAuth)}</div>
+        <div>
+          <Charts localAuth={this.state.localAuth}/>
+        </div>
       </div>
     );
   }
-}
+};
+
 
 const mapStatetoProps = (state) => {
   return {

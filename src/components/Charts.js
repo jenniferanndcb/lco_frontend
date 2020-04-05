@@ -5,14 +5,21 @@ import { fetchLocalAuthData } from "../actions/localauthdata";
 import { connect } from "react-redux";
 
 class Charts extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      localAuth: "",
+    };
+  }
+
   componentDidMount() {
     this.props.fetchLondonData();
     this.props.fetchLocalAuthData();
   }
 
-  formatLondonData = londonData => {
+  formatLondonData = (londonData) => {
     return (londonData = {
-      labels: this.props.londonData.map(arr => arr.age),
+      labels: this.props.londonData.map((arr) => arr.age),
       datasets: [
         {
           label: "London",
@@ -20,9 +27,15 @@ class Charts extends React.Component {
           barPercentage: 0.5,
           maxBarThickness: 150,
           minBarLength: 2,
-          data: this.props.londonData.map(arr => arr.value)
+          data: this.props.londonData.map((arr) => arr.value),
+        },
+        {
+          label: this.props.localAuth,
+          backgroundColor: "rgba(100, 100, 1, 0.75)",
+          minBarLength: 2,
+        
         }
-      ]
+      ],
     });
   };
 
@@ -39,12 +52,12 @@ class Charts extends React.Component {
                   yAxes: [
                     {
                       ticks: {
-                        beginAtZero: true
-                      }
-                    }
-                  ]
+                        beginAtZero: true,
+                      },
+                    },
+                  ],
                 },
-                maintainAspectRatio: false
+                maintainAspectRatio: false,
               }}
             />
           )}
@@ -54,16 +67,16 @@ class Charts extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    londonData: state.londonData.londonData
+    londonData: state.londonData.londonData,
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
     fetchLondonData: () => dispatch(fetchLondonData()),
-    fetchLocalAuthData: () => dispatch(fetchLocalAuthData())
+    fetchLocalAuthData: () => dispatch(fetchLocalAuthData()),
   };
 };
 
