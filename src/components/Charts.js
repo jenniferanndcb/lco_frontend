@@ -1,6 +1,6 @@
 import React from "react";
 import { Bar } from "react-chartjs-2";
-import { fetchLondonData } from "../actions/londondata";
+// import { fetchLondonData } from "../actions/londondata";
 import { fetchLocalAuthData } from "../actions/localauthdata";
 import { connect } from "react-redux";
 
@@ -13,13 +13,13 @@ class Charts extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchLondonData();
+    // this.props.fetchLondonData();
     this.props.fetchLocalAuthData();
   }
 
   formatLondonData = (londonData) => {
     return (londonData = {
-      labels: this.props.londonData.map((arr) => arr.age),
+      labels: ["4-5", "10-11"],
       datasets: [
         {
           label: "London",
@@ -27,16 +27,23 @@ class Charts extends React.Component {
           barPercentage: 0.5,
           maxBarThickness: 150,
           minBarLength: 2,
-          data: this.props.londonData.map((arr) => arr.value),
+          data: this.filteredLondon(this.props.londonData).map(
+            (arr) => arr.value
+          ),
         },
         {
           label: this.props.localAuth,
           backgroundColor: "rgba(100, 100, 1, 0.75)",
           minBarLength: 2,
-        
-        }
+          data: this.props.londonData.filter((data) => data.area_name === this.props.localAuth).map((arr) => arr.value)
+        },
       ],
+      
     });
+  };
+
+  filteredLondon = (data) => {
+    return data.filter((data) => data.region_name === "London");
   };
 
   render() {
@@ -69,13 +76,13 @@ class Charts extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    londonData: state.londonData.londonData,
+    londonData: state.localAuthData.localAuthData,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchLondonData: () => dispatch(fetchLondonData()),
+    // fetchLondonData: () => dispatch(fetchLondonData()),
     fetchLocalAuthData: () => dispatch(fetchLocalAuthData()),
   };
 };
