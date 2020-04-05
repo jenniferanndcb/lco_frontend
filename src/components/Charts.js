@@ -31,12 +31,15 @@ class Charts extends React.Component {
         },
         {
           label: this.props.localAuth,
-          backgroundColor: "rgba(100, 100, 1, 0.75)",
+          backgroundColor: "rgba(90, 202, 215, 0.75)",
+          barPercentage: 0.5,
+          maxBarThickness: 150,
           minBarLength: 2,
-          data: this.props.londonData.filter((data) => data.area_name === this.props.localAuth).map((arr) => arr.value)
+          data: this.props.londonData
+            .filter((data) => data.area_name === this.props.localAuth)
+            .map((arr) => arr.value),
         },
       ],
-      
     });
   };
 
