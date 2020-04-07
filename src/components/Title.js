@@ -27,8 +27,5 @@ class Title extends React.Component {
   }
 }
 
-// const mapStateToProps = state => {
-//   return { localAuthority: state.postcodes.localAuthority };
-// };
 
 export default Title;

@@ -5,13 +5,10 @@ import { connect } from "react-redux";
 
 class Charts extends React.Component {
 
-  componentDidMount() {
-    this.props.fetchLocalAuthData();
-  }
 
   formatLondonData = (londonData) => {
     return (londonData = {
-      labels: ["4-5", "10-11"],
+      labels: ["4-5 year olds", "10-11 year olds"],
       datasets: [
         {
           label: "London",

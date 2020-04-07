@@ -1,6 +1,4 @@
 import React from "react";
-import { connect } from "react-redux";
-import { fetchLocalAuthData } from "../actions/localauthdata";
 import Charts from "./Charts";
 import Button from "./Button";
 
@@ -8,10 +6,6 @@ class AreaDropdown extends React.Component {
   state = {
     localAuth: "",
   };
-
-  componentDidMount() {
-    this.props.fetchLocalAuthData();
-  }
 
   handleOnChange = (e) => {
     this.setState({
@@ -45,20 +39,21 @@ class AreaDropdown extends React.Component {
     return (
       <div className="container">
         <div className="form">
-          {this.props.localAuth.length > 0 && (
-            <form onSubmit={this.handleOnSubmit}>
-              <label>Select Local Authority</label>
-              <select value={this.state.value} onChange={this.handleOnChange}>
-                {this.handleSelect(this.props.localAuth)}
-              </select>
-            </form>
-          )}
+          <form onSubmit={this.handleOnSubmit}>
+            <label>Select Local Authority: </label>
+            <select value={this.state.value} onChange={this.handleOnChange}>
+              {this.handleSelect(this.props.londonData)}
+            </select>
+          </form>
         </div>
         <div className="selectedOption">
           {this.state.localAuth && this.renderAreaName(this.state.localAuth)}
         </div>
         <div>
-          <Charts localAuth={this.state.localAuth} />
+          <Charts
+            localAuth={this.state.localAuth}
+            londonData={this.props.londonData}
+          />
           <Button localAuth={this.state.localAuth} />
         </div>
       </div>
@@ -66,10 +61,4 @@ class AreaDropdown extends React.Component {
   }
 }
 
-const mapStatetoProps = (state) => {
-  return {
-    localAuth: state.localAuthData.localAuthData,
-  };
-};
-
-export default connect(mapStatetoProps, { fetchLocalAuthData })(AreaDropdown);
+export default AreaDropdown;
