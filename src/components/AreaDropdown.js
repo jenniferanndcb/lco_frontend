@@ -1,6 +1,5 @@
 import React from "react";
-import Charts from "./Charts";
-import Button from "./Button";
+import BarChart from "./BarChart"
 
 class AreaDropdown extends React.Component {
   state = {
@@ -50,11 +49,10 @@ class AreaDropdown extends React.Component {
           {this.state.localAuth && this.renderAreaName(this.state.localAuth)}
         </div>
         <div>
-          <Charts
+          <BarChart
             localAuth={this.state.localAuth}
             londonData={this.props.londonData}
           />
-          <Button localAuth={this.state.localAuth} />
         </div>
       </div>
     );
