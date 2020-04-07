@@ -4,12 +4,6 @@ import { fetchLocalAuthData } from "../actions/localauthdata";
 import { connect } from "react-redux";
 
 class Charts extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      localAuth: "",
-    };
-  }
 
   componentDidMount() {
     this.props.fetchLocalAuthData();
