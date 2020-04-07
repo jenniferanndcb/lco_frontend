@@ -12,9 +12,13 @@ class BarChart extends React.Component {
     this.buildChart();
   }
 
+  componentDidUpdate() {
+    this.buildChart();
+  }
+
   buildChart() {
     var ctx = document.getElementById("barChart").getContext("2d");
-    var chart = new Chart(ctx, {
+    barChart = new Chart(ctx, {
       type: "bar",
       data: {
         labels: ["4-5 year olds", "10-11 year olds"],
@@ -42,12 +46,59 @@ class BarChart extends React.Component {
           ],
         },
         maintainAspectRatio: false,
-      }
+      },
     });
   }
 
+  addSelectedLocalAuth(selectedLocalAuth) {
+    this.addData(
+      barChart,
+      selectedLocalAuth,
+      this.randomBgColor(),
+      this.filteredData(this.props.londonData)
+    );
+  }
+
+  addData(chart, label, color, data) {
+    chart.data.datasets.push({
+      label: label,
+      backgroundColor: color,
+      barPercentage: 0.5,
+      maxBarThickness: 150,
+      minBarLength: 2,
+      data: data,
+    });
+    // debugger;
+    chart.update();
+  }
+
+  randomBgColor() {
+    var x = Math.floor(Math.random() * 256);
+    var y = Math.floor(Math.random() * 256);
+    var z = Math.floor(Math.random() * 256);
+
+    const bgColor = "rgb(" + x + "," + y + "," + z + ")";
+
+    return bgColor;
+  }
+
+  filteredData(londonData) {
+    return londonData
+      .filter((data) => data.area_name === this.props.localAuth)
+      .map((arr) => arr.value);
+  }
+
   render() {
-    return <canvas id="barChart" />;
+    return (
+      <div
+        className="barChart"
+        style={{ position: "relative", width: 1000, height: 650 }}
+      >
+        <canvas id="barChart" />;
+        {this.props.localAuth &&
+          this.addSelectedLocalAuth(this.props.localAuth)}
+      </div>
+    );
   }
 }
 

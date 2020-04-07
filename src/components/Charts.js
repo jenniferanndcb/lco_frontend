@@ -110,7 +110,7 @@ class Charts extends React.Component {
               maintainAspectRatio: false,
             }}
           /> */}
-          {this.buildChart()}
+  
         </div>
       </div>
     );
