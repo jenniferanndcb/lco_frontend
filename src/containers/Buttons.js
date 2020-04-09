@@ -1,21 +1,22 @@
 import React from "react";
+import Button from "../components/Button";
 import { connect } from "react-redux";
 
+
 class Buttons extends React.Component {
-  render(){
+  render() {
     return (
       <div>
-        <Button keepData={this.props.keepData} />
-        <Buttons removeData={this.props.removeData} />
+        <Button removeDataset={this.props.removeDataset} />
       </div>
-    )
+    );
   }
 }
 
+const mapStateToProps = ({ localAuthData }) => ({ localAuthData })
 
 const mapDispatchToProps = (dispatch) => ({
-  keepData: (localAuthData) => dispatch({type: "KEEP_DATA"}, localAuthData),
-  removeData: (id) => dispatch({ type: "REMOVE_DATA"})
+  removeDataset: (id) => dispatch({ type: "REMOVE_DATASET", id }),
 });
 
-export default connect(null, mapDispatchToProps)(Buttons)
+export default connect(mapStateToProps, mapDispatchToProps)(Buttons);

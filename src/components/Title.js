@@ -18,8 +18,8 @@ class Title extends React.Component {
           </p>
 
           <p>
-            Find out more about the prevalence of childhood obesity in your
-            local area by typing your <strong>full</strong> postcode below.
+            The chart below shows the average prevalence of childhood obesity across London in %. 
+            Find out more about the prevalence of childhood obesity in specific London Boroughs by selecting a Local Authority below.
           </p>
         </div>
       </div>

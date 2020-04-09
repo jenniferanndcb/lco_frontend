@@ -4,15 +4,7 @@ import { Chart } from "react-chartjs-2";
 let barChart;
 
 class BarChart extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   componentDidMount() {
-    this.buildChart();
-  }
-
-  componentDidUpdate() {
     this.buildChart();
   }
 
@@ -25,7 +17,7 @@ class BarChart extends React.Component {
         datasets: [
           {
             label: "London",
-            backgroundColor: "rgba(100, 0, 250, 0.75)",
+            backgroundColor: "rgba(100, 0, 250)",
             barPercentage: 0.5,
             maxBarThickness: 150,
             minBarLength: 2,
@@ -68,7 +60,6 @@ class BarChart extends React.Component {
       minBarLength: 2,
       data: data,
     });
-    // debugger;
     chart.update();
   }
 
@@ -84,7 +75,11 @@ class BarChart extends React.Component {
 
   filteredData(londonData) {
     return londonData
-      .filter((data) => data.area_name === this.props.localAuth)
+      .filter(
+        (data) =>
+          data.area_name ===
+          this.props.localAuth[this.props.localAuth.length - 1]
+      )
       .map((arr) => arr.value);
   }
 
@@ -94,12 +89,15 @@ class BarChart extends React.Component {
         className="barChart"
         style={{ position: "relative", width: 1000, height: 650 }}
       >
-        <canvas id="barChart" />;
-        {this.props.localAuth &&
-          this.addSelectedLocalAuth(this.props.localAuth)}
+        <canvas id="barChart" />
+        {this.props.localAuth.length > 0 &&
+          this.addSelectedLocalAuth(
+            this.props.localAuth[this.props.localAuth.length - 1]
+          )}
       </div>
     );
   }
+  debugger;
 }
 
 export default BarChart;
