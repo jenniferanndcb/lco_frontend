@@ -4,36 +4,21 @@ import Button from "./Button";
 
 class AreaDropdown extends React.Component {
   state = {
-    // localAuth: "",
     localAuths: [],
   };
 
   handleOnChange = (e) => {
     this.setState({
-      // localAuth: e.target.value,
-      localAuths: this.state.localAuths.concat(e.target.value)
+      localAuths: this.state.localAuths.concat(e.target.value),
     });
   };
 
   handleOnSubmit = (e) => {
     e.preventDefault();
-
-    // this.addLocalAuth(this.state.localAuth);
     this.setState({
       localAuths: [],
     });
   };
-
-  // addLocalAuth = (localAuth) => {
-  //   this.setState((state) => {
-  //     const localAuths = state.localAuths.concat(localAuth);
-
-  //     return {
-  //       ...localAuths,
-
-  //     };
-  //   });
-  // };
 
   renderAreaName = (area) => {
     return <h2>London Borough of {area}</h2>;
@@ -48,6 +33,12 @@ class AreaDropdown extends React.Component {
     ));
   };
 
+  removeDataset = (localAuth) => {
+    this.setState({
+      localAuths: this.state.localAuths.filter((el) => el !== localAuth),
+    });
+  };
+
   render() {
     return (
       <div className="container">
@@ -60,10 +51,17 @@ class AreaDropdown extends React.Component {
           </form>
         </div>
         <div className="selectedOption">
-          {this.state.localAuths[this.state.localAuths.length -1] && this.renderAreaName(this.state.localAuth)}
+          {this.state.localAuths > 0 &&
+            this.renderAreaName(
+              this.state.localAuths[this.state.localAuths.length - 1]
+            )}
         </div>
+
         <div>
-          {/* <Button localAuths={this.state.localAuths}/> */}
+          <Button
+            localAuths={this.state.localAuths}
+            removeDataset={this.removeDataset.bind(this)}
+          />
           <BarChart
             localAuth={this.state.localAuths}
             londonData={this.props.londonData}

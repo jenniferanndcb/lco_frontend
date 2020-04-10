@@ -97,7 +97,6 @@ class BarChart extends React.Component {
       </div>
     );
   }
-  debugger;
 }
 
 export default BarChart;
