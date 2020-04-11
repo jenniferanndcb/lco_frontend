@@ -8,7 +8,7 @@ function App() {
     <div className="App">
       <Title />
       <ChartsContainer />
-      <LPContainer />
+      <LondonProgrammesContainer />
     </div>
   );
 }

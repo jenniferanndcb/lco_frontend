@@ -1,6 +1,6 @@
 import React from "react";
 
-class LondonProgrammes extends React.Component {
+class LondonProgrammeForm extends React.Component {
   state = {
     programme: {
       title: "",
