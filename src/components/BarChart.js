@@ -8,6 +8,10 @@ class BarChart extends React.Component {
     this.buildChart();
   }
 
+  componentDidUpdate() {
+    this.updateChart(this.props.localAuth);
+  }
+
   buildChart() {
     var ctx = document.getElementById("barChart").getContext("2d");
     barChart = new Chart(ctx, {
@@ -40,6 +44,11 @@ class BarChart extends React.Component {
         maintainAspectRatio: false,
       },
     });
+  }
+
+  updateChart(newLocalAuths) {
+    newLocalAuths.length > 0 &&
+      newLocalAuths.map((la) => this.addSelectedLocalAuth(la));
   }
 
   addSelectedLocalAuth(selectedLocalAuth) {
@@ -90,10 +99,10 @@ class BarChart extends React.Component {
         style={{ position: "relative", width: 1000, height: 650 }}
       >
         <canvas id="barChart" />
-        {this.props.localAuth.length > 0 &&
-          this.addSelectedLocalAuth(
-            this.props.localAuth[this.props.localAuth.length - 1]
-          )}
+
+        {/* {distinctLocalAuthProps.map((localAuth) =>
+          this.addSelectedLocalAuth(localAuth)
+        )} */}
       </div>
     );
   }

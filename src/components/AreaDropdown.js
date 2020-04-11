@@ -8,17 +8,18 @@ class AreaDropdown extends React.Component {
   };
 
   handleOnChange = (e) => {
+    const localAuths = this.state.localAuths.concat(e.target.value)
     this.setState({
-      localAuths: this.state.localAuths.concat(e.target.value),
+      localAuths: [...new Set(localAuths)],
     });
   };
 
-  handleOnSubmit = (e) => {
-    e.preventDefault();
-    this.setState({
-      localAuths: [],
-    });
-  };
+  // handleOnSubmit = (e) => {
+  //   e.preventDefault();
+  //   this.setState({
+  //     localAuths: [],
+  //   });
+  // };
 
   renderAreaName = (area) => {
     return <h2>London Borough of {area}</h2>;
@@ -51,7 +52,7 @@ class AreaDropdown extends React.Component {
           </form>
         </div>
         <div className="selectedOption">
-          {this.state.localAuths > 0 &&
+          {this.state.localAuths.length > 0 &&
             this.renderAreaName(
               this.state.localAuths[this.state.localAuths.length - 1]
             )}
