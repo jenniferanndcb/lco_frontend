@@ -4,8 +4,8 @@ const LondonProgrammeCard = (props) => (
   <div className="container">
     <div className="card card-inverse card-success card-primary mb-3 text-center">
       <div className="card-block">
+        <p>{props.programme.title}</p>
         <blockquote className="card-blockprogramme">
-          <h3>{props.programme.title}</h3>
           <p>{props.programme.description}</p>
           <footer>
             - link <cite title="Source Title"> {props.programme.url}</cite>
