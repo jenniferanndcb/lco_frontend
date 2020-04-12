@@ -1,13 +1,11 @@
 import React from "react";
-import londonSkyline from "../assets/londonSkyline.png";
+
 
 class Title extends React.Component {
   render() {
     return (
       <div className="container">
-        <div className="img">
-          <img src={londonSkyline} />
-        </div>
+        
         <div className="title">
           <h1>Prevalance of Childhood Obesity in London 2018/19</h1>
         </div>
