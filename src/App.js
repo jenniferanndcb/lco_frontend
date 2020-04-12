@@ -1,7 +1,8 @@
 import React from "react";
 import Title from "./components/Title";
 import ChartsContainer from "./containers/ChartsContainer";
-import LPContainer from "./containers/LPContainer";
+import LondonProgrammesContainer from "./containers/LondonProgrammesContainer";
+
 
 function App() {
   return (

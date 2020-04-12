@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
 import localAuthData from "./localAuthData";
-// import manageButtons from "./manageButtons";
+import programmes from "./programmes";
 
 export default combineReducers({
   localAuthData,
-  // manageButtons,
+  programmes,
 });
