@@ -8,18 +8,11 @@ class AreaDropdown extends React.Component {
   };
 
   handleOnChange = (e) => {
-    const localAuths = this.state.localAuths.concat(e.target.value)
+    const localAuths = this.state.localAuths.concat(e.target.value);
     this.setState({
       localAuths: [...new Set(localAuths)],
     });
   };
-
-  // handleOnSubmit = (e) => {
-  //   e.preventDefault();
-  //   this.setState({
-  //     localAuths: [],
-  //   });
-  // };
 
   renderAreaName = (area) => {
     return <h2>London Borough of {area}</h2>;
@@ -46,9 +39,11 @@ class AreaDropdown extends React.Component {
         <div className="form">
           <form onSubmit={this.handleOnSubmit}>
             <label>Select Local Authority: </label>
-            <select value={this.state.value} onChange={this.handleOnChange}>
-              {this.handleSelect(this.props.londonData)}
-            </select>
+            <div className="select">
+              <select value={this.state.value} onChange={this.handleOnChange}>
+                {this.handleSelect(this.props.londonData)}
+              </select>
+            </div>
           </form>
         </div>
         <div className="selectedOption">

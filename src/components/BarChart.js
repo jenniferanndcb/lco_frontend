@@ -9,6 +9,8 @@ class BarChart extends React.Component {
   }
 
   componentDidUpdate() {
+    barChart.data.datasets.slice(0, 1);
+    debugger;
     this.updateChart(this.props.localAuth);
   }
 
@@ -94,15 +96,17 @@ class BarChart extends React.Component {
 
   render() {
     return (
-      <div
-        className="barChart"
-        style={{ position: "relative", width: 1000, height: 650 }}
-      >
-        <canvas id="barChart" />
+      <div>
+        <div
+          className="barChart"
+          style={{ position: "relative", width: 1000, height: 650 }}
+        >
+          <canvas id="barChart" />
 
-        {/* {distinctLocalAuthProps.map((localAuth) =>
+          {/* {distinctLocalAuthProps.map((localAuth) =>
           this.addSelectedLocalAuth(localAuth)
         )} */}
+        </div>
       </div>
     );
   }

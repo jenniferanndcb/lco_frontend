@@ -10,10 +10,15 @@ class ChartsContainer extends React.Component {
 
   render() {
     return (
-      <div>
-        {this.props.localAuthData.length > 0 && (
-          <AreaDropdown londonData={this.props.localAuthData} />
-        )}
+      <div className="section-charts-container">
+        <div className="page-title">
+          <h1>Prevalance of Childhood Obesity in London 2018/19</h1>
+        </div>
+        <div>
+          {this.props.localAuthData.length > 0 && (
+            <AreaDropdown londonData={this.props.localAuthData} />
+          )}
+        </div>
       </div>
     );
   }

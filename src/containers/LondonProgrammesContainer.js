@@ -24,11 +24,11 @@ class LondonProgrammesContainer extends React.Component {
   render() {
     return (
       <div>
-        <div className="section-programmes">
+        <div className="section-container-programmes">
           <h2>What is happening around London?</h2>
           <LondonProgrammeForm />
         </div>
-        <div className="container-programmes">
+        <div className="section-programmes">
           <div className="row">
             <div className="col-md-4">{this.renderProgrammes()}</div>
           </div>
