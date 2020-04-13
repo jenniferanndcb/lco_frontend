@@ -9,8 +9,6 @@ class BarChart extends React.Component {
   }
 
   componentDidUpdate() {
-    barChart.data.datasets.slice(0, 1);
-    debugger;
     this.updateChart(this.props.localAuth);
   }
 
@@ -49,6 +47,7 @@ class BarChart extends React.Component {
   }
 
   updateChart(newLocalAuths) {
+    this.buildChart();
     newLocalAuths.length > 0 &&
       newLocalAuths.map((la) => this.addSelectedLocalAuth(la));
   }

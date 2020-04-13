@@ -42,43 +42,47 @@ class LondonProgrammeForm extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleOnSubmit}>
-        <label>
-          Programme Title:
-          <input
-            type="text"
-            value={this.state.programme.title}
-            onChange={this.handleOnChange}
-            name="title"
-          ></input>
-        </label>
-        <br />
-        <br />
-        <label>
-          Link:
-          <input
-            type="text"
-            value={this.state.programme.url}
-            onChange={this.handleOnChange}
-            name="url"
-          ></input>
-        </label>
-        <br />
-        <br />
-        <label>
-          Description:
-          <textarea
-            value={this.state.programme.description}
-            onChange={this.handleOnChange}
-            name="description"
-          />
-        </label>
+        <div class="form-group">
+          <label>
+            Programme Title:
+            <input
+              class="form-control form-control-lg"
+              type="text"
+              value={this.state.programme.title}
+              onChange={this.handleOnChange}
+              name="title"
+            ></input>
+          </label>
+        </div>
+        <div class="form-group">
+          <label>
+            Link:
+            <input
+              class="form-control form-control-lg"
+              type="text"
+              value={this.state.programme.url}
+              onChange={this.handleOnChange}
+              name="url"
+            ></input>
+          </label>
+        </div>
+
+        <div class="form-group">
+          <label>
+            Description:
+            <input
+              class="form-control form-control-lg"
+              value={this.state.programme.description}
+              onChange={this.handleOnChange}
+              name="description"
+            />
+          </label>
+        </div>
         <br />
         <div className="form-group">
-          <div className="col-md-6 col-md-offset-4">
-            <button type="submit" className="btn btn-default">
-              Add
-            </button>
-          </div>
+          <button class="btn btn-primary" type="submit">
+            Add
+          </button>
         </div>
       </form>
     );

@@ -16,12 +16,17 @@ const Title = () => {
           to feature London-wide initiatives to address this problem.
         </p>
 
+        <h4>The impact of unhealthy weight</h4>
         <p>
-          The chart below shows the average prevalence of childhood obesity
-          across London in %. Find out more about the prevalence of childhood
-          obesity in specific London Boroughs by selecting a Local Authority
-          below.
+          The evidence shows that being affected by unhealthy weight in childhood damages children's health both now and in the future. Unhealthy weight in childhood can lead to: 
+          <ul>
+            <li>early onset of chronic conditions e.g. type 2 diabetes, cardiovascular disease and some cancers</li>
+            <li>a high risk of unhealthy weight in adulthood with a greater risk of physical morbidity, disability and premature death</li>
+            <li>poor psychological and emotional health including anxiety and depression, low self-esteem and higher likelihood of experiencing bullying and stigma</li>
+            <li>tooth decay</li>
+          </ul>
         </p>
+
       </div>
     </div>
   );
