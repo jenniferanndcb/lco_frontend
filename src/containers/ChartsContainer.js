@@ -12,9 +12,8 @@ class ChartsContainer extends React.Component {
     return (
       <div className="section-charts-container">
         <div className="page-title">
-          <h1>Prevalance of Childhood Obesity in London 2018/19</h1>
           <p>The chart below shows the average prevalence of childhood obesity
-          across London in %. Find out more about the prevalence of childhood
+          across London in % in 2018-19. Find out more about the prevalence of childhood
           obesity in specific London Boroughs by selecting a Local Authority
           below.</p>
         </div>

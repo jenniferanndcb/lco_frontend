@@ -35,11 +35,11 @@ code {
 }
 
 .section-title {
-  padding-top: 5em;
+  padding-top: 0em;
 }
 
 .section-charts-container {
-  padding-top: 5em;
+  padding-top: 0em;
 }
 
 .form {
@@ -55,7 +55,22 @@ code {
   padding-top: 5em;
 }
 
-#tool_eatwell { 
+#tool_eatwell {
   padding-top: 5em;
   height: 800px;
+}
+
+.masthead-container {
+  position: relative;
+  text-align: center;
+  height: 500px;
+}
+
+.highlight {
+  background-color: #fff2ac;
+  background-image: linear-gradient(to right, #ffe359 0%, #fff2ac 100%);
+  font-family: "Helvetica Neue";
+  position: absolute;
+  bottom: 50px;
+  left: 16px;
 }
