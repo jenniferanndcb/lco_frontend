@@ -32,13 +32,13 @@ const Navbar = () => {
         Data
       </NavLink>
       <NavLink
-        to="/programmes"
+        to="/healthyeating"
         exact
         style={link}
         activeStyle={{ background: "rgba(84,83,83)" }}
         className="nav-link"
       >
-        Programmes
+        Eatwell
       </NavLink>
     </div>
   );
