@@ -35,6 +35,11 @@ class BarChart extends React.Component {
         scales: {
           yAxes: [
             {
+              scaleLabel: {
+                display: true,
+                labelString:
+                  "Proportion of children who were overweight or obese in %",
+              },
               ticks: {
                 beginAtZero: true,
               },
