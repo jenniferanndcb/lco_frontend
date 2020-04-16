@@ -52,9 +52,8 @@ class BarChart extends React.Component {
   }
 
   updateChart(newLocalAuths) {
-    this.buildChart();
     newLocalAuths.length > 0 &&
-      newLocalAuths.map((la) => this.addSelectedLocalAuth(la));
+      this.addSelectedLocalAuth(newLocalAuths[newLocalAuths.length - 1]);
   }
 
   addSelectedLocalAuth(selectedLocalAuth) {
