@@ -23,7 +23,9 @@ class AreaDropdown extends React.Component {
     const distinctLocalAuth = [...new Set(localAuth)];
 
     return distinctLocalAuth.map((area, i) => (
-      <option key={i} value={area}>{area}</option>
+      <option key={i} value={area}>
+        {area}
+      </option>
     ));
   };
 

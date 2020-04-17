@@ -4,12 +4,34 @@ import { Chart } from "react-chartjs-2";
 let barChart;
 
 class BarChart extends React.Component {
+  // state = {
+  //   chart: null,
+  // };
+
   componentDidMount() {
     this.buildChart();
   }
 
+  // static getDerivedStateFromProps(nextProps, prevState) {
+  //   if (prevState !== nextProps.localAuth) {
+  //     debugger;
+  //     return {
+  //       chart: {
+  //         data: {
+  //           datasets:
+  //         }
+  //       }
+  //     };
+  //   }
+
+  //   return null;
+  // }
+
   componentDidUpdate() {
+    // const data = barChart.data.datasets.map((la) => la.label);
+   
     this.updateChart(this.props.localAuth);
+    // debugger;
   }
 
   buildChart() {
@@ -49,10 +71,13 @@ class BarChart extends React.Component {
         maintainAspectRatio: false,
       },
     });
+    this.setState({
+      chart: barChart,
+    });
   }
 
   updateChart(newLocalAuths) {
-    newLocalAuths.length > 0 &&
+    newLocalAuths.length > 0 && 
       this.addSelectedLocalAuth(newLocalAuths[newLocalAuths.length - 1]);
   }
 
