@@ -4,34 +4,47 @@ import { Chart } from "react-chartjs-2";
 let barChart;
 
 class BarChart extends React.Component {
-  // state = {
-  //   chart: null,
-  // };
+  state = {
+    chart: null,
+    localAuths: [],
+    data: [],
+  };
 
   componentDidMount() {
     this.buildChart();
   }
 
-  // static getDerivedStateFromProps(nextProps, prevState) {
-  //   if (prevState !== nextProps.localAuth) {
-  //     debugger;
-  //     return {
-  //       chart: {
-  //         data: {
-  //           datasets:
-  //         }
-  //       }
-  //     };
-  //   }
-
-  //   return null;
-  // }
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (nextProps.localAuth !== prevState.localAuths) {
+      const newLocalAuth = nextProps.localAuth.map((la) => {
+        const chosenLa45 = nextProps.londonData.find(
+          (obj) => la === obj.area_name && obj.age === "4-5 yrs"
+        );
+        const chosenLa1011 = nextProps.londonData.find(
+          (obj) => la === obj.area_name && obj.age === "10-11 yrs"
+        );
+        return {
+          label: la,
+          backgroundColor: nextProps.bgColor(),
+          barPercentage: 0.5,
+          maxBarThickness: 150,
+          minBarLength: 2,
+          data: [chosenLa45.value, chosenLa1011.value],
+        };
+      });
+      return {
+        ...prevState,
+        localAuths: nextProps.localAuth,
+        data: newLocalAuth,
+      };
+    }
+    return null;
+  }
 
   componentDidUpdate() {
-    // const data = barChart.data.datasets.map((la) => la.label);
-   
-    this.updateChart(this.props.localAuth);
-    // debugger;
+    this.state.chart.data.datasets = this.state.data;
+    this.state.chart.update();
+    // this.updateChart(this.props.localAuth);
   }
 
   buildChart() {
@@ -77,7 +90,7 @@ class BarChart extends React.Component {
   }
 
   updateChart(newLocalAuths) {
-    newLocalAuths.length > 0 && 
+    newLocalAuths.length > 0 &&
       this.addSelectedLocalAuth(newLocalAuths[newLocalAuths.length - 1]);
   }
 
@@ -100,16 +113,6 @@ class BarChart extends React.Component {
       data: data,
     });
     chart.update();
-  }
-
-  randomBgColor() {
-    var x = Math.floor(Math.random() * 256);
-    var y = Math.floor(Math.random() * 256);
-    var z = Math.floor(Math.random() * 256);
-
-    const bgColor = "rgb(" + x + "," + y + "," + z + ")";
-
-    return bgColor;
   }
 
   filteredData(londonData) {

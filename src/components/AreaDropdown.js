@@ -35,6 +35,16 @@ class AreaDropdown extends React.Component {
     });
   };
 
+  randomBgColor() {
+    var x = Math.floor(Math.random() * 256);
+    var y = Math.floor(Math.random() * 256);
+    var z = Math.floor(Math.random() * 256);
+
+    const bgColor = "rgb(" + x + "," + y + "," + z + ")";
+
+    return bgColor;
+  }
+
   render() {
     return (
       <div className="container">
@@ -63,6 +73,7 @@ class AreaDropdown extends React.Component {
           <BarChart
             localAuth={this.state.localAuths}
             londonData={this.props.londonData}
+            bgColor={this.randomBgColor}
           />
         </div>
       </div>
