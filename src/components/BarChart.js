@@ -8,47 +8,48 @@ class BarChart extends React.Component {
     super(props);
     this.chartReference = React.createRef();
     this.state = {
+      chart: {
+        type: "bar",
+        data: {
+          labels: ["4-5 year olds", "10-11 year olds"],
+          datasets: [
+            {
+              label: "London",
+              backgroundColor: "rgba(100, 0, 250)",
+              barPercentage: 0.5,
+              maxBarThickness: 150,
+              minBarLength: 2,
+              data: this.props.londonData
+                .filter((data) => data.region_name === "London")
+                .map((arr) => arr.value),
+            },
+          ],
+        },
+        options: {
+          scales: {
+            yAxes: [
+              {
+                scaleLabel: {
+                  display: true,
+                  labelString:
+                    "Proportion of children who were overweight or obese in %",
+                },
+                ticks: {
+                  beginAtZero: true,
+                },
+              },
+            ],
+          },
+          maintainAspectRatio: false,
+        },
+      },
       localAuths: [],
       data: [],
     };
   }
 
   componentDidMount() {
-    this.myChart = new Chart(this.chartReference.current, {
-      type: "bar",
-      data: {
-        labels: ["4-5 year olds", "10-11 year olds"],
-        datasets: [
-          {
-            label: "London",
-            backgroundColor: "rgba(100, 0, 250)",
-            barPercentage: 0.5,
-            maxBarThickness: 150,
-            minBarLength: 2,
-            data: this.props.londonData
-              .filter((data) => data.region_name === "London")
-              .map((arr) => arr.value),
-          },
-        ],
-      },
-      options: {
-        scales: {
-          yAxes: [
-            {
-              scaleLabel: {
-                display: true,
-                labelString:
-                  "Proportion of children who were overweight or obese in %",
-              },
-              ticks: {
-                beginAtZero: true,
-              },
-            },
-          ],
-        },
-        maintainAspectRatio: false,
-      },
-    });
+    this.myChart = new Chart(this.chartReference.current, this.state.chart);
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
@@ -83,83 +84,83 @@ class BarChart extends React.Component {
     this.myChart.update();
   }
 
-  buildChart() {
-    var ctx = document.getElementById("barChart").getContext("2d");
-    barChart = new Chart(ctx, {
-      type: "bar",
-      data: {
-        labels: ["4-5 year olds", "10-11 year olds"],
-        datasets: [
-          {
-            label: "London",
-            backgroundColor: "rgba(100, 0, 250)",
-            barPercentage: 0.5,
-            maxBarThickness: 150,
-            minBarLength: 2,
-            data: this.props.londonData
-              .filter((data) => data.region_name === "London")
-              .map((arr) => arr.value),
-          },
-        ],
-      },
-      options: {
-        scales: {
-          yAxes: [
-            {
-              scaleLabel: {
-                display: true,
-                labelString:
-                  "Proportion of children who were overweight or obese in %",
-              },
-              ticks: {
-                beginAtZero: true,
-              },
-            },
-          ],
-        },
-        maintainAspectRatio: false,
-      },
-    });
-    this.setState({
-      chart: barChart,
-    });
-  }
+  // buildChart() {
+  //   var ctx = document.getElementById("barChart").getContext("2d");
+  //   barChart = new Chart(ctx, {
+  //     type: "bar",
+  //     data: {
+  //       labels: ["4-5 year olds", "10-11 year olds"],
+  //       datasets: [
+  //         {
+  //           label: "London",
+  //           backgroundColor: "rgba(100, 0, 250)",
+  //           barPercentage: 0.5,
+  //           maxBarThickness: 150,
+  //           minBarLength: 2,
+  //           data: this.props.londonData
+  //             .filter((data) => data.region_name === "London")
+  //             .map((arr) => arr.value),
+  //         },
+  //       ],
+  //     },
+  //     options: {
+  //       scales: {
+  //         yAxes: [
+  //           {
+  //             scaleLabel: {
+  //               display: true,
+  //               labelString:
+  //                 "Proportion of children who were overweight or obese in %",
+  //             },
+  //             ticks: {
+  //               beginAtZero: true,
+  //             },
+  //           },
+  //         ],
+  //       },
+  //       maintainAspectRatio: false,
+  //     },
+  //   });
+  //   this.setState({
+  //     chart: barChart,
+  //   });
+  // }
 
-  updateChart(newLocalAuths) {
-    newLocalAuths.length > 0 &&
-      this.addSelectedLocalAuth(newLocalAuths[newLocalAuths.length - 1]);
-  }
+  // updateChart(newLocalAuths) {
+  //   newLocalAuths.length > 0 &&
+  //     this.addSelectedLocalAuth(newLocalAuths[newLocalAuths.length - 1]);
+  // }
 
-  addSelectedLocalAuth(selectedLocalAuth) {
-    this.addData(
-      barChart,
-      selectedLocalAuth,
-      this.randomBgColor(),
-      this.filteredData(this.props.londonData)
-    );
-  }
+  // addSelectedLocalAuth(selectedLocalAuth) {
+  //   this.addData(
+  //     barChart,
+  //     selectedLocalAuth,
+  //     this.randomBgColor(),
+  //     this.filteredData(this.props.londonData)
+  //   );
+  // }
 
-  addData(chart, label, color, data) {
-    chart.data.datasets.push({
-      label: label,
-      backgroundColor: color,
-      barPercentage: 0.5,
-      maxBarThickness: 150,
-      minBarLength: 2,
-      data: data,
-    });
-    chart.update();
-  }
+  // addData(chart, label, color, data) {
+  //   chart.data.datasets.push({
+  //     label: label,
+  //     backgroundColor: color,
+  //     barPercentage: 0.5,
+  //     maxBarThickness: 150,
+  //     minBarLength: 2,
+  //     data: data,
+  //   });
+  //   chart.update();
+  // }
 
-  filteredData(londonData) {
-    return londonData
-      .filter(
-        (data) =>
-          data.area_name ===
-          this.props.localAuth[this.props.localAuth.length - 1]
-      )
-      .map((arr) => arr.value);
-  }
+  // filteredData(londonData) {
+  //   return londonData
+  //     .filter(
+  //       (data) =>
+  //         data.area_name ===
+  //         this.props.localAuth[this.props.localAuth.length - 1]
+  //     )
+  //     .map((arr) => arr.value);
+  // }
 
   render() {
     return (
@@ -168,12 +169,10 @@ class BarChart extends React.Component {
           className="barChart"
           style={{ position: "relative", width: 1000, height: 650 }}
         >
-          {/* <canvas id="barChart" /> */}
+        
           <canvas ref={this.chartReference} />
 
-          {/* {distinctLocalAuthProps.map((localAuth) =>
-          this.addSelectedLocalAuth(localAuth)
-        )} */}
+        
         </div>
       </div>
     );
