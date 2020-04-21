@@ -4,14 +4,51 @@ import { Chart } from "react-chartjs-2";
 let barChart;
 
 class BarChart extends React.Component {
-  state = {
-    chart: null,
-    localAuths: [],
-    data: [],
-  };
+  constructor(props) {
+    super(props);
+    this.chartReference = React.createRef();
+    this.state = {
+      localAuths: [],
+      data: [],
+    };
+  }
 
   componentDidMount() {
-    this.buildChart();
+    this.myChart = new Chart(this.chartReference.current, {
+      type: "bar",
+      data: {
+        labels: ["4-5 year olds", "10-11 year olds"],
+        datasets: [
+          {
+            label: "London",
+            backgroundColor: "rgba(100, 0, 250)",
+            barPercentage: 0.5,
+            maxBarThickness: 150,
+            minBarLength: 2,
+            data: this.props.londonData
+              .filter((data) => data.region_name === "London")
+              .map((arr) => arr.value),
+          },
+        ],
+      },
+      options: {
+        scales: {
+          yAxes: [
+            {
+              scaleLabel: {
+                display: true,
+                labelString:
+                  "Proportion of children who were overweight or obese in %",
+              },
+              ticks: {
+                beginAtZero: true,
+              },
+            },
+          ],
+        },
+        maintainAspectRatio: false,
+      },
+    });
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
@@ -42,9 +79,8 @@ class BarChart extends React.Component {
   }
 
   componentDidUpdate() {
-    this.state.chart.data.datasets = this.state.data;
-    this.state.chart.update();
-    // this.updateChart(this.props.localAuth);
+    this.myChart.data.datasets = this.state.data;
+    this.myChart.update();
   }
 
   buildChart() {
@@ -132,7 +168,8 @@ class BarChart extends React.Component {
           className="barChart"
           style={{ position: "relative", width: 1000, height: 650 }}
         >
-          <canvas id="barChart" />
+          {/* <canvas id="barChart" /> */}
+          <canvas ref={this.chartReference} />
 
           {/* {distinctLocalAuthProps.map((localAuth) =>
           this.addSelectedLocalAuth(localAuth)
