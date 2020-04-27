@@ -68,7 +68,7 @@ class AreaDropdown extends React.Component {
         <div>
           <Button
             localAuths={this.state.localAuths}
-            removeDataset={this.removeDataset.bind(this)}
+            removeDataset={this.removeDataset}
           />
           <BarChart
             localAuth={this.state.localAuths}
