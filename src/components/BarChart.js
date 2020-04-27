@@ -1,7 +1,7 @@
 import React from "react";
 import { Chart } from "react-chartjs-2";
 
-let barChart;
+// let barChart;
 
 class BarChart extends React.Component {
   constructor(props) {

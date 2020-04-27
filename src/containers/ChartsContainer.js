@@ -4,6 +4,7 @@ import { fetchLocalAuthData } from "../actions/localauthdata";
 import AreaDropdown from "../components/AreaDropdown";
 
 class ChartsContainer extends React.Component {
+  
   componentDidMount() {
     this.props.fetchLocalAuthData();
   }

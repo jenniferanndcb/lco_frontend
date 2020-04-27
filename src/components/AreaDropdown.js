@@ -18,7 +18,7 @@ class AreaDropdown extends React.Component {
     return <h2>London Borough of {area}</h2>;
   };
 
-  handleSelect = (data) => {
+  listLondonBoroughs = (data) => {
     const localAuth = data.map((arr) => arr.area_name);
     const distinctLocalAuth = [...new Set(localAuth)];
 
@@ -53,7 +53,7 @@ class AreaDropdown extends React.Component {
             <label>Select Local Authority: </label>
             <div className="select">
               <select value={this.state.value} onChange={this.handleOnChange}>
-                {this.handleSelect(this.props.londonData)}
+                {this.listLondonBoroughs(this.props.londonData)}
               </select>
             </div>
           </form>
