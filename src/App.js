@@ -4,7 +4,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Title from "./components/Title";
 import ChartsContainer from "./containers/ChartsContainer";
 import Masthead from "./components/Masthead";
-import Widget from './containers/Widget';
+import Widget from "./containers/Widget";
 
 function App() {
   return (

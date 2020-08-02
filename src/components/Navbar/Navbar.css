@@ -30,13 +30,45 @@
   transition: border-bottom 0.5s ease-in-out; */
 }
 
+.burger {
+  display: flex;
+  flex-direction: column;
+}
+
 .burger div {
   width: 30px;
-  height: 3px;
+  height: 2px;
   background-color: white;
-  margin: 5px;
+  margin: 3px;
   display: none;
   cursor: pointer;
+  transition: all ease 0.5s;
+}
+
+.open:nth-child(1) {
+  transform: rotate(45deg) translateY(12px);
+}
+
+.open:nth-child(2) {
+  opacity: 0;
+}
+
+.open:nth-child(3) {
+  transform: rotate(-45deg) translateY(-12px);
+}
+
+.close:nth-child(1) {
+  transform: rotate(0);
+  opacity: 1;
+}
+
+.close:nth-child(2) {
+  opacity: 1;
+}
+
+.close:nth-child(3) {
+  transform: rotate(0);
+  opacity: 1;
 }
 
 @media screen and (max-width: 1024px) {

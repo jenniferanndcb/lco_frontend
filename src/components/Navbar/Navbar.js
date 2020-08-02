@@ -1,8 +1,9 @@
-import React from "react";
+import React, {useState} from "react";
 import { NavLink } from "react-router-dom";
 import "./Navbar.css";
 
 const Navbar = () => {
+  const [status, setStatus] = useState('open');
   return (
     <div className="nav-container">
       <NavLink to="/" exact className="nav-link" activeClassName="selected">
@@ -23,10 +24,10 @@ const Navbar = () => {
         Eatwell
       </NavLink>
 
-      <div className="burger">
-        <div />
-        <div />
-        <div />
+      <div className="burger" role="button" onClick={() => setStatus(status === 'open' ? 'close' : 'open')}>
+        <div className={status}/>
+        <div className={status}/>
+        <div className={status}/>
       </div>
     </div>
   );
