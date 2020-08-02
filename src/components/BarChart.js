@@ -55,10 +55,10 @@ class BarChart extends React.Component {
   static getDerivedStateFromProps(nextProps, prevState) {
     if (nextProps.localAuth !== prevState.localAuths) {
       const newLocalAuth = nextProps.localAuth.map((la) => {
-        const chosenLa45 = nextProps.londonData.find(
+        const chosenLa4to5 = nextProps.londonData.find(
           (obj) => la === obj.area_name && obj.age === "4-5 yrs"
         );
-        const chosenLa1011 = nextProps.londonData.find(
+        const chosenLa10to11 = nextProps.londonData.find(
           (obj) => la === obj.area_name && obj.age === "10-11 yrs"
         );
         return {
@@ -67,9 +67,10 @@ class BarChart extends React.Component {
           barPercentage: 0.5,
           maxBarThickness: 150,
           minBarLength: 2,
-          data: [chosenLa45.value, chosenLa1011.value],
+          data: [chosenLa4to5.value, chosenLa10to11.value],
         };
       });
+
       return {
         ...prevState,
         localAuths: nextProps.localAuth,
@@ -133,9 +134,9 @@ class BarChart extends React.Component {
 
   // addSelectedLocalAuth(selectedLocalAuth) {
   //   this.addData(
-  //     barChart,
+  //     this.myChart,
   //     selectedLocalAuth,
-  //     this.randomBgColor(),
+  //     this.props.bgColor(),
   //     this.filteredData(this.props.londonData)
   //   );
   // }
@@ -169,10 +170,7 @@ class BarChart extends React.Component {
           className="barChart"
           style={{ position: "relative", width: 1000, height: 650 }}
         >
-        
           <canvas ref={this.chartReference} />
-
-        
         </div>
       </div>
     );

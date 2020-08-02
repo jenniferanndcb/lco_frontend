@@ -1,22 +1,22 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import "./Navbar.css"
 
-const link = {
-  width: "100px",
-  padding: "12px",
-  margin: "0 6px 6px",
-  background: "grey",
-  textDecoration: "none",
-  color: "white",
-};
+// const link = {
+//   width: "100px",
+//   padding: "12px",
+//   margin: "0 6px 6px",
+//   background: "grey",
+//   textDecoration: "none",
+//   color: "white",
+// };
 
 const Navbar = () => {
   return (
-    <div className="nav-component">
+    <div className="nav-container">
       <NavLink
         to="/"
         exact
-        style={link}
         activeStyle={{ background: "rgba(84,83,83)" }}
         className="nav-link"
       >
@@ -25,7 +25,6 @@ const Navbar = () => {
       <NavLink
         to="/data"
         exact
-        style={link}
         activeStyle={{ background: "rgba(84,83,83)" }}
         className="nav-link"
       >
@@ -34,7 +33,6 @@ const Navbar = () => {
       <NavLink
         to="/healthyeating"
         exact
-        style={link}
         activeStyle={{ background: "rgba(84,83,83)" }}
         className="nav-link"
       >
