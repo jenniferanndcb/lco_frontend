@@ -1,40 +1,21 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import "./Navbar.css"
-
-// const link = {
-//   width: "100px",
-//   padding: "12px",
-//   margin: "0 6px 6px",
-//   background: "grey",
-//   textDecoration: "none",
-//   color: "white",
-// };
+import "./Navbar.css";
 
 const Navbar = () => {
   return (
     <div className="nav-container">
-      <NavLink
-        to="/"
-        exact
-        activeStyle={{ background: "rgba(84,83,83)" }}
-        className="nav-link"
-      >
+      <NavLink to="/" exact className="nav-link" activeClassName="selected">
         Home
       </NavLink>
-      <NavLink
-        to="/data"
-        exact
-        activeStyle={{ background: "rgba(84,83,83)" }}
-        className="nav-link"
-      >
+      <NavLink to="/data" exact className="nav-link" activeClassName="selected">
         Data
       </NavLink>
       <NavLink
         to="/healthyeating"
         exact
-        activeStyle={{ background: "rgba(84,83,83)" }}
         className="nav-link"
+        activeClassName="selected"
       >
         Eatwell
       </NavLink>
