@@ -8,6 +8,9 @@ const Navbar = () => {
       <NavLink to="/" exact className="nav-link" activeClassName="selected">
         Home
       </NavLink>
+      <NavLink to="/about" exact className="nav-link" activeClassName="selected">
+        About
+      </NavLink>
       <NavLink to="/data" exact className="nav-link" activeClassName="selected">
         Data
       </NavLink>
@@ -19,6 +22,12 @@ const Navbar = () => {
       >
         Eatwell
       </NavLink>
+
+      <div className="burger">
+        <div />
+        <div />
+        <div />
+      </div>
     </div>
   );
 };

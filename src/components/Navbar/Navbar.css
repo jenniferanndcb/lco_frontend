@@ -21,10 +21,52 @@
 
 .nav-link:hover {
   color: rgb(235, 137, 137);
+  transform: translateY(-2px);
 }
 
 .selected {
   color: rgb(235, 137, 137);
-  border-bottom: 2px solid rgb(235, 137, 137);
-  transition: border-bottom 0.5s ease-in-out;
+  /* border-bottom: 2px solid rgb(235, 137, 137);
+  transition: border-bottom 0.5s ease-in-out; */
+}
+
+.burger div {
+  width: 30px;
+  height: 3px;
+  background-color: white;
+  margin: 5px;
+  display: none;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1024px) {
+  .nav-link {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+  .nav-link {
+    position: absolute;
+    right: 0px;
+    height: 92vh;
+    top: 8vh;
+    background-color: teal;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    cursor: pointer;
+    transform: translateX(100%);
+  }
+  .nav-link {
+    opacity: 0;
+  }
+
+  .burger div {
+    display: block;
+  }
 }
