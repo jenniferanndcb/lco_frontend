@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Drawer from "./drawer"
 import "./Navbar.css";
 
 const Burger = () => {
@@ -16,7 +15,7 @@ const Burger = () => {
         <div className={status} />
       </div>
 
-      <Drawer status={status} />
+      
     </>
   );
 };

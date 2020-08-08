@@ -5,12 +5,14 @@ import Title from "./components/Title";
 import ChartsContainer from "./containers/ChartsContainer";
 import Masthead from "./components/Masthead";
 import Widget from "./containers/Widget";
+import Drawer from "./components/Navbar/drawer"
 
 function App() {
   return (
     <Router>
       <div className="App">
         <Navbar />
+        <Drawer />
         <Masthead />
         <Route exact path="/" component={Title} />
         <Route exact path="/data" component={ChartsContainer} />
