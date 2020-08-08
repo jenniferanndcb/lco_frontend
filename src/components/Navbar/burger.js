@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import Navbar from "./Navbar";
+import Drawer from "./drawer"
 import "./Navbar.css";
 
 const Burger = () => {
-  const [status, setStatus] = useState("open");
+  const [status, setStatus] = useState("close");
   return (
     <>
       <div
@@ -16,7 +16,7 @@ const Burger = () => {
         <div className={status} />
       </div>
 
-      <Navbar status={status} />
+      <Drawer status={status} />
     </>
   );
 };
