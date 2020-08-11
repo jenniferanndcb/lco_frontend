@@ -4,7 +4,7 @@ import './Navbar.css'
 
 const Drawer = (props) => {
   return (
-    <div className="drawer_container">
+    <div className={'drawer_container drwr-' + props.status}>
       <NavLink to="/" exact className="drwr-link" activeClassName="selected">
         Home
       </NavLink>

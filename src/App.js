@@ -11,8 +11,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Navbar />
-       
+        <Navbar />      
         <Masthead />
         <Route exact path="/" component={Title} />
         <Route exact path="/data" component={ChartsContainer} />
