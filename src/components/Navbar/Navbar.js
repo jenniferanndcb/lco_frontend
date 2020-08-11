@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./Navbar.css";
+import Drawer from "./drawer"
 import Burger from "./burger";
 
 const Navbar = () => {
+  const [status, setStatus] = useState("close");
   return (
     <div className="nav-container">
       <NavLink to="/" exact className="nav-link" activeClassName="selected">
@@ -24,7 +26,8 @@ const Navbar = () => {
         Eatwell
       </NavLink>
 
-      <Burger />
+      <Burger status={status} handleClick={() => setStatus(status == "open" ? "close" : "open")}/>
+      <Drawer status={status} />
     </div>
   );
 };

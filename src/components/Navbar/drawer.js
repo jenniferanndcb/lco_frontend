@@ -5,19 +5,19 @@ import './Navbar.css'
 const Drawer = (props) => {
   return (
     <div className="drawer_container">
-      <NavLink to="/" exact className="nav-link" activeClassName="selected">
+      <NavLink to="/" exact className="drwr-link" activeClassName="selected">
         Home
       </NavLink>
-      <NavLink to="/about" exact className="nav-link" activeClassName="selected">
+      <NavLink to="/about" exact className="drwr-link" activeClassName="selected">
         About
       </NavLink>
-      <NavLink to="/data" exact className="nav-link" activeClassName="selected">
+      <NavLink to="/data" exact className="drwr-link" activeClassName="selected">
         Data
       </NavLink>
       <NavLink
         to="/healthyeating"
         exact
-        className="nav-link"
+        className="drwr-link"
         activeClassName="selected"
       >
         Eatwell

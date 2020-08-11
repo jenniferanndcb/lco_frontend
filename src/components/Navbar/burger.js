@@ -1,21 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Navbar.css";
 
-const Burger = () => {
-  const [status, setStatus] = useState("close");
+const Burger = (props) => {
   return (
     <>
-      <div
-        className="burger"
-        role="button"
-        onClick={() => setStatus(status === "open" ? "close" : "open")}
-      >
-        <div className={status} />
-        <div className={status} />
-        <div className={status} />
+      <div className="burger" role="button" onClick={props.handleClick}>
+        <div className={props.status} />
+        <div className={props.status} />
+        <div className={props.status} />
       </div>
-
-      
     </>
   );
 };
